@@ -1,0 +1,21 @@
+@media screen and (max-width:1280px){
+    #subheader p{margin-left: 10px; }
+    #subheader a{margin-right: 10px;}
+    
+}
+@media screen and (max-width:1020px){
+    
+}
+@media screen and (max-width:768px){
+    #subheader a{font-size: 15px;margin-left: 15px;}
+    
+}
+@media screen and (max-width:480px){
+    #subheader p{display: none;}
+    #subheader{padding-bottom: 10px;}
+    
+}
+@media screen and (max-width:1280px){
+    #firstname a{margin-right: 10px;}
+    
+}

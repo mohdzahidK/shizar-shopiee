@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="/home/zahid/shizar/css/jquery.bxslider.css" rel="stylesheet" type="text/css">
+   <link href="/home/zahid/shizar/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/home/zahid/shizar/css/media.css">
+    <script src="http://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>JavaScript Session</title>
+
+
+</head>
+<body>
+
+<div class="login">
+    <div class="loginHeader">
+     <h1>REGISTRATION</h1></div>
+<form>
+    <div class="viewsection">
+        <div id="Mydata"></div>
+    <h1>MEMBERS</h1>
+    <label for="Phone">MEMBERS INFO</label><br/><br/>
+    <button onclick="getContacts()">contact</button>
+    <script>
+        function getContacts(){
+            alert("test");
+            const getConURL = 'http://127.0.0.1:5000/ConatctInfo'
+            axios.get(getConURL).then(res=>{
+                console.log(res)
+                 }).catch(err=>alert(err));
+
+         }
+
+    </script>
+    </div>
+    <div class="loginInfo">
+    <label  for="firstName" id="fn"> FirstName</label><br/>
+   <br/>
+   <input onclick="hideErrmsg('firstNameeErrMsg')" type="text" id="firstName"/><br/>
+   <span id="firstNameeErrMsg"></span><br/>
+
+
+
+   <label for="lastName" >LastName</label><br/><br/>
+   <input onclick="hideErrmsg('lastNameErrMsg')" type="text" id="lastName" /><br/>
+   <span id="lastNameErrMsg"></span>
+   <br/>
+
+
+
+   <label for="email">Email</label><br/><br/>
+   <input onclick="hideErrmsg('emailErrMsg')" type="text" id="email"/><br/>
+   <span id="emailErrMsg"></span>
+   <br/>
+
+
+
+   <label for="Phone">Phone Number</label><br/><br/>
+   <input onclick="hideErrmsg('phoneErrMsg')" type="text" id="Phone" /><br/>
+   <span id="phoneErrMsg"></span><br/>
+   <br/><br/>
+    <label for="password">Password</label><br/><br/>
+    <input onlick="hideErrmsg('passwordErrMsg')" type="text" id="password" /><br/>
+    <sanp id="passwordErrMsg"></sanp>
+    <br/><br/>
+   </form></div>
+<div class="loginHeader">
+    you have account<a href="/home/zahid/shizar/login.html">Login</a><br/><br/>
+ <button onclick="validateForm()" >Submit</button>s</div>
+</div>
+
+<script>
+    function validateForm(){
+        var firstname = document.getElementById('firstName').value;
+        var lastName = document.getElementById('lastName').value;
+        var email = document.getElementById('email').value;
+        var Phone = document.getElementById('Phone').value;
+        var password = document.getElementById('password').value;
+
+        if(!firstname){
+            document.getElementById('firstNameeErrMsg').style.display = 'block'
+            document.getElementById('firstNameeErrMsg').innerHTML = 'Please fill the First Name';
+            document.getElementById('firstNameeErrMsg').style.color = 'red' ;
+
+        }
+        if(!lastName){
+            document.getElementById('lastNameErrMsg').style.display = 'block'
+            document.getElementById('lastNameErrMsg').innerHTML = 'Please fill the Last Name';
+            document.getElementById('lastNameErrMsg').style.color = 'red' ;
+        }
+        if(!email){
+            document.getElementById('emailErrMsg').style.display = 'block'
+            document.getElementById('emailErrMsg').innerHTML = 'Please fill the Email';
+            document.getElementById('emailErrMsg').style.color = 'red' ;
+        }
+        else if(!ValidateEmail(email)){
+            document.getElementById('emailErrMsg').style.display = 'block'
+            document.getElementById('emailErrMsg').innerHTML = 'Please enter valid email';
+            document.getElementById('emailErrMsg').style.color = 'red' ;
+
+
+        }
+
+        if(!Phone){
+            document.getElementById('phoneErrMsg').style.display = 'block'
+            document.getElementById('phoneErrMsg').innerHTML = 'Please fill the Phone Number';
+            document.getElementById('phoneErrMsg').style.color = 'red' ;
+        }
+        else if(isNaN(Phone)) {
+            document.getElementById('phoneErrMsg').style.display = 'block'
+            document.getElementById('phoneErrMsg').innerHTML = 'please enter  Number';
+            document.getElementById('phoneErrMsg').style.color = 'red' ;
+        }
+        if(!password){
+            document.getElementById('passwordErrMsg').style.display = 'block'
+            document.getElementById('passwordErrMsg').innerHTML = 'please enter password at least 8 elements';
+            document.getElementById('passwordErrMsg').style.color = 'red';
+            }
+
+
+    }
+
+
+    function ValidateEmail(mail) {
+      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+      {
+    return (true)
+     }
+    return (false)
+     }
+
+
+
+   function  hideErrmsg(val){
+       document.getElementById(val).style.display= 'none';
+   }
+
+
+</script>
+</body>
+
+
+</body>
+
+
+
+
+</html>

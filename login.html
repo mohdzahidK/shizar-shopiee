@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            ::login::
+        </title>
+        <link href="/home/zahid/e commerce/css/style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+
+        
+
+        <div class="login">
+            <div class="loginHeader">
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+             <h1> LOGIN</h1>
+            </div>
+        <form>
+            <div class="loginInfo">
+                <lebal for="email">Email</lebal><br/><br/>
+                <input onclick="hideErrmsg('emailErrMsg')" type="text" id=email />
+                <snap id="emailErrMsg"></snap><br/><br/>
+
+
+                <lebal for="Password">password</lebal><br/><br/>
+                <input onclick="hideErrmsg('passwordErrMsg')" type="text" id="password" />
+                <snap id="passwordErrMsg"></snap><br/>
+            </div>
+        
+        </form>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <div class="loginHeader">
+            <button onclick="loginvalidation()">LOGIN</button>
+        
+        </div>
+
+    <script>
+        function loginvalidation(){
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            if(!email){
+                document.getElementById('emailErrMsg').style.display = 'block'
+                document.getElementById('emailErrMsg').innerHTML = 'please fill enter email';
+                document.getElementById('emailErrMsg').style.color = 'red';
+            }
+            if(!password){
+                document.getElementById('passwordErrMsg').style.display = 'block'
+                document.getElementById('passwordErrMsg').innerHTML = 'please fill enter password';
+                document.getElementById('passwordErrMsg').style.color = 'red';
+            }
+        }          
+
+
+        
+    </script>     
+    </body>
+</html>
